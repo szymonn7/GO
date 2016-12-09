@@ -38,6 +38,30 @@ public class GUI extends JFrame{
     private Button RefuseDead;
     private Button AcceptResults;
     /**
+     * konstruktor GUI
+     */
+    public GUI(){
+        Board = new JPanel();
+        //state = new State();
+        NewGame = new Button();
+        JoinGame = new Button();
+        ChoosePlayer = new Button();
+        ChooseBot = new Button();
+        Choose19x19 = new Button();
+        Choose13x13 = new Button();
+        Choose9x9 = new Button();
+        WaitingForOpponent = new Label();
+        YouPlayAs = new Button();
+        Pass = new Button();
+        GiveUp = new Button();
+        ChooseDead = new Label();
+        ConfirmDead = new Button();
+        Resume = new Button();
+        AcceptDead = new Button();
+        RefuseDead = new Button();
+        AcceptResults = new Button();
+    }
+    /**
     * funkcja aktualizująca wygląd planszy
     */
     private void Repaint(){
