@@ -72,9 +72,11 @@ public class GUI extends JFrame{
      * funkcja zmieniająca stan GUI wraz z jego wyglądem
      */
     private void SetState(State newstate){
-        this.state.endstate();
+        if(state!=null) {
+            this.state.EndState();
+        }
         this.state = newstate;
-        this.state.startstate();
+        this.state.StartState();
 
     }
 

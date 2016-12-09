@@ -7,10 +7,10 @@ public interface State {
     /**
      * metoda wykonywana gdy GUI przechodzi w dany stan
      */
-    public void startstate();
+    void StartState();
 
     /**
      * metda wykonywana gdy GUI wychodzi z danego stanu
      */
-    public void endstate();
+    void EndState();
 }
