@@ -12,7 +12,7 @@ public class GUI extends JFrame{
     /**
      * panel na którym będzie rysowana plansza
      */
-    private JPanel Board;
+    public JPanel Board;
     /**
      * zmienna przechowująca w jakim stanie znajduje się GUI
      */
@@ -20,23 +20,23 @@ public class GUI extends JFrame{
     /**
      * Przyciski, powiadomienia itp. wyświetlane w różnych stanach GUI
      */
-    private Button NewGame;
-    private Button JoinGame;
-    private Button ChoosePlayer;
-    private Button ChooseBot;
-    private Button Choose19x19;
-    private Button Choose13x13;
-    private Button Choose9x9;
-    private Label WaitingForOpponent;
-    private Button YouPlayAs;
-    private Button Pass;
-    private Button GiveUp;
-    private Label ChooseDead;
-    private Button ConfirmDead;
-    private Button Resume;
-    private Button AcceptDead;
-    private Button RefuseDead;
-    private Button AcceptResults;
+    public Button NewGame;
+    public Button JoinGame;
+    public Button ChoosePlayer;
+    public Button ChooseBot;
+    public Button Choose19x19;
+    public Button Choose13x13;
+    public Button Choose9x9;
+    public Label WaitingForOpponent;
+    public Button YouPlayAs;
+    public Button Pass;
+    public Button GiveUp;
+    public Label ChooseDead;
+    public Button ConfirmDead;
+    public Button Resume;
+    public Button AcceptDead;
+    public Button RefuseDead;
+    public Button AcceptResults;
     /**
      * konstruktor GUI
      */
