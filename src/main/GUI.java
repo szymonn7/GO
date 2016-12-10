@@ -64,14 +64,14 @@ public class GUI extends JFrame{
     /**
     * funkcja aktualizująca wygląd planszy
     */
-    private void Repaint(Stone[][] board){
+    public void Repaint(Stone[][] board){
 
     }
 
     /**
      * funkcja zmieniająca stan GUI wraz z jego wyglądem
      */
-    private void SetState(State newstate){
+    public void SetState(State newstate){
         if(state!=null) {
             this.state.EndState();
         }

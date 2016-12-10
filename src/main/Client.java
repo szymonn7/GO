@@ -1,17 +1,37 @@
 package main;
 
 import main.Commands.Command;
+import main.States.State;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 
 /**
  * Klasa klient
  */
 public class Client {
     private GUI MyGui;
-    private color player;
+    //private color player;
+    private static int PORT = 8901;
+    private Socket socket;
+    ObjectInputStream in;
+    ObjectOutputStream out;
+
+    /**
+     * konstruktor
+     * @param ServerAddress
+     * @throws Exception
+     */
+    public Client(String ServerAddress) throws Exception{
+        socket = new Socket(ServerAddress, PORT);
+        in = new ObjectInputStream(socket.getInputStream());
+        out = new ObjectOutputStream(socket.getOutputStream());
+        SetListeners();
+    }
     /**
      * Funkcja odpowiedzialna za ustawienie komunikacji do servera
      */
@@ -112,11 +132,28 @@ public class Client {
     /**
      * Funkcja wysyłająca komendę do servera
      */
-    private void SendCommand(Command command){}
+    private void SendCommand(Command command){
+        try{out.writeObject(command);}
+        catch(Exception e){System.out.println("cos sie popsulo");}
+
+    }
 
     /**
      * Funkcja zmieniająca GUI na podstawie komendy gracza
      */
-    private void update(){}
+    private void update(){
+        while(true){
+            try{
+                Object obj = (Object) in.readObject();
+                if(obj instanceof State){
+                    MyGui.SetState((State) obj);
+                }
+                else if(obj instanceof Stone[][]){
+                    MyGui.Repaint((Stone[][]) obj);
+                }
+            }
+            catch(Exception e){System.out.println("cos sie popsulo");}
+        }
+    }
 
 }
