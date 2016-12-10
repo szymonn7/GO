@@ -64,7 +64,7 @@ public class GUI extends JFrame{
     /**
     * funkcja aktualizująca wygląd planszy
     */
-    private void Repaint(){
+    private void Repaint(Stone[][] board){
 
     }
 
