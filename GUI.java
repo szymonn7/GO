@@ -46,6 +46,9 @@ public class GUI extends JFrame{
      */
     public GUI(){
         Board = new JPanel();
+        setSize(800,800);
+        setTitle("GO");
+        setLayout(null);
         //state = new State();
         NewGame = new Button("NOWA GRA");
         NewGame.setBounds(50,650,100,30);
