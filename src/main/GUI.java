@@ -18,6 +18,10 @@ public class GUI extends JFrame{
      */
     private State state;
     /**
+     * zmienna przehowująca rozmiar planszy
+     */
+    public int size;
+    /**
      * Przyciski, powiadomienia itp. wyświetlane w różnych stanach GUI
      */
     public Button NewGame;
@@ -72,7 +76,7 @@ public class GUI extends JFrame{
      * funkcja zmieniająca stan GUI wraz z jego wyglądem
      */
     public void SetState(State newstate){
-        if(state!=null) {
+        if(this.state!=null) {
             this.state.EndState();
         }
         this.state = newstate;

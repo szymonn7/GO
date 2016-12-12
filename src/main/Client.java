@@ -1,6 +1,7 @@
 package main;
 
 import main.Commands.Command;
+import main.States.MakeOrJoinGameState;
 import main.States.State;
 
 import java.awt.event.ActionEvent;
@@ -24,12 +25,15 @@ public class Client {
     /**
      * konstruktor
      * @param ServerAddress
-     * @throws Exception
      */
-    public Client(String ServerAddress) throws Exception{
-        socket = new Socket(ServerAddress, PORT);
-        in = new ObjectInputStream(socket.getInputStream());
-        out = new ObjectOutputStream(socket.getOutputStream());
+    public Client(String ServerAddress){
+        try {
+            socket = new Socket(ServerAddress, PORT);
+            in = new ObjectInputStream(socket.getInputStream());
+            out = new ObjectOutputStream(socket.getOutputStream());
+            MyGui= new GUI();
+        }
+        catch(Exception e){System.out.println("cos sie popsulo");}
         SetListeners();
     }
     /**
@@ -154,6 +158,11 @@ public class Client {
             }
             catch(Exception e){System.out.println("cos sie popsulo");}
         }
+    }
+    public static void main(String[] args){
+        Client newClient = new Client("localhost");
+        newClient.MyGui.SetState(new MakeOrJoinGameState());
+        newClient.update();
     }
 
 }
